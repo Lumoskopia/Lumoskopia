@@ -1,0 +1,34 @@
+imports:
+    - { resource: config.yml }
+
+#framework:
+#    validation:
+#        cache: validator.mapping.cache.doctrine.apc
+#    serializer:
+#        cache: serializer.mapping.cache.doctrine.apc
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        # web requests: logging to local file and buffered logging to HipChat & email monitoring
+        main:
+            type:         fingers_crossed
+            action_level: critical
+            handler:      local_log_file
+
+        # local logging: direct to log file
+        local_log_file:
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: error
+
+        # console logging
+        console:
+            type:  console
+
+        # Sentry monitoring is added automatically, if the DSN is set in the parameters

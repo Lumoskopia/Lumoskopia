@@ -1,0 +1,13 @@
+# This file is a "template" of what your parameters.yml file should look like
+parameters:
+    # Database config
+    database_name:     symfony
+    database_user:     root
+    database_password: root
+
+    # Mailer config
+    mailer_host:          127.0.0.1
+    dev_delivery_address: ~
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
